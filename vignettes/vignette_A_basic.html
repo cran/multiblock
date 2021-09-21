@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>A. Basic analysis</title>
+
+<script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<link rel="stylesheet" href="data:text/css,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" type="text/css" />
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">A. Basic analysis</h1>
+
+
+<div id="TOC">
+<ul>
+<li><a href="#basic-methods">Basic methods</a>
+<ul>
+<li><a href="#prepare-data">Prepare data</a></li>
+<li><a href="#modelling">Modelling</a></li>
+<li><a href="#common-output-elements-across-methods">Common output elements across methods</a></li>
+<li><a href="#scores-and-loadings">Scores and loadings</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start the multiblock R package</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multiblock)</span></code></pre></div>
+<div id="basic-methods" class="section level1">
+<h1>Basic methods</h1>
+<p>The following single- and two-block methods are available in the <em>multiblock</em> package (function names in parentheses):</p>
+<ul>
+<li>PCA - Principal Component Analysis (<em>pca</em>)</li>
+<li>PCR - Principal Component Regression (<em>pcr</em>)</li>
+<li>PLSR - Partial Least Squares Regression (<em>plsr</em>)</li>
+<li>CCA - Canonical Correlation Analysis (<em>cca</em>)</li>
+<li>IFA - Interbattery Factor Analysis (<em>ifa</em>)</li>
+<li>GSVD - Generalized SVD (<em>gsvd</em>)</li>
+</ul>
+<p>The following sections will describe how to format your data for analysis and invoke all methods from the list above.</p>
+<div id="prepare-data" class="section level2">
+<h2>Prepare data</h2>
+<p>We use a selection of extracts from the potato data included in the package for the basic data analyses. The data set is stored as a named list of nine matrices with chemical, rheological, spectral and sensory measurements with measurements from 26 raw and cooked potatoes.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(potato)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> potato<span class="sc">$</span>Chemical</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> potato<span class="sc">$</span>Sensory[,<span class="dv">1</span>,drop<span class="ot">=</span><span class="cn">FALSE</span>]</span></code></pre></div>
+</div>
+<div id="modelling" class="section level2">
+<h2>Modelling</h2>
+<p>Since the basic methods cover both single block analysis, supervised and unsupervised analysis, the interfaces for the basic methods vary a bit. Supervised methods use the formula interface and the remaining methods take input as a single matrix or list of matrices. See vignettes for supervised and unsupervised analysis for details.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Single block</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pot.pca  <span class="ot">&lt;-</span> <span class="fu">pca</span>(X, <span class="at">ncomp =</span> <span class="dv">2</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Two blocks, supervised</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>pot.pcr  <span class="ot">&lt;-</span> <span class="fu">pcr</span>(y <span class="sc">~</span> X, <span class="at">ncomp =</span> <span class="dv">2</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>pot.pls  <span class="ot">&lt;-</span> <span class="fu">plsr</span>(y <span class="sc">~</span> X, <span class="at">ncomp =</span> <span class="dv">2</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Two blocks, unsupervised</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>pot.cca  <span class="ot">&lt;-</span> <span class="fu">cca</span>(potato[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>pot.ifa  <span class="ot">&lt;-</span> <span class="fu">ifa</span>(potato[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Variable linked decomposition</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>pot.gsvd <span class="ot">&lt;-</span> <span class="fu">gsvd</span>(<span class="fu">lapply</span>(potato[<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>], t))</span></code></pre></div>
+</div>
+<div id="common-output-elements-across-methods" class="section level2">
+<h2>Common output elements across methods</h2>
+<p>Output from all methods include matrices called <em>loadings</em>, <em>scores</em>, <em>blockLoadings</em> and <em>blockScores</em>, or a suitable subset of these according the method used. An <em>info</em> list describes which types of (block) loadings/scores are in the output. There may be various extra elements in addition to the common elements, e.g. coefficients, weights etc. The <em>names()</em> and <em>summary()</em> functions below show all elements of the object and a summary based on the <em>info</em> list, respectively.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># PCA returns loadings and scores:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pot.pca)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;loadings&quot; &quot;scores&quot;   &quot;Xmeans&quot;   &quot;&quot;         &quot;PCA&quot;      &quot;info&quot;     &quot;call&quot;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pot.pca)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Principal Component Analysis </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Score type:  Scores </span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Loadings type:  Loadings</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># GSVD returns block scores and common loadings:</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pot.gsvd)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;loadings&quot;    &quot;blockScores&quot; &quot;GSVD&quot;        &quot;info&quot;        &quot;call&quot;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pot.gsvd)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Generalized Singular Value Decomposition </span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Loadings type:  Loadings </span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Block scores type:  Block scores</span></span></code></pre></div>
+</div>
+<div id="scores-and-loadings" class="section level2">
+<h2>Scores and loadings</h2>
+<p>Functions for accessing scores and loadings are based on functions from the <em>pls</em> package, but extended with a <em>block</em> parameter to allow extraction of common/global scores/loadings and their block counterparts. The default value for <em>block</em> is 0, corresponding to the common/global block. Block scores/loadings can be accessed by setting <em>block</em> to a number or name.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Global scores plotted with object labels</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">scores</span>(pot.pca), <span class="at">labels =</span> <span class="st">&quot;names&quot;</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkAAAAGACAMAAAByRC0tAAAAhFBMVEUAAAAAAA0AADoAAGYAICEAIHsAKDoAMZAAOjoAOpAAZrYXADoqOgAykNs6AAA6ADo6AGY6Ojo6OpA6kNtmAABmADpmkJBmtrZmtv+QOgCQZgCQtpCQ2/+dZgC2ZgC2/7a2//+8kDrbkDrbtmbb2//b////tmb/trb/25D//7b//9v///81BTgAAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAPPUlEQVR4nO2d63rbuBFAVaeXddo6yVpt4zRltmzDStb7v18JgHeJJKjhUAB4zo9d70afiFhHwAAYDA4XAAGHRzcA4gaBQAQCgQgEAhEIBCIQCEQgEIhAIBCBQCACgUAEAoEIBAIRCAQiEAhEIBCIQCAQgUAgAoFABAKBCAQCEQgEIhAIRCAQiEAgEIFAIAKBQAQCgQgEAhEIBCIQCEQgEIhAIBCBQCACgUAEAoEIBAIRCAQiEAhEIBCIQCAQgUAgAoFABAKBCAQCEQgEIhAIRCAQiEAgEIFAIAKBQAQCgQgEAhEIBCIQCEQgEIhAIBCBQCACgUAEAoEIBAIRCAQiEAhEIBCIQCAQgUAgAoFABAKBCAQCEQgEIhAIRCAQiEAgEIFAIAKBQAQCgQgEAhEIBCJWFugAifAogdZ9O3gUCAQiECgazkczYnx8dDMGIFA0nD59f3QTboBA0VB8+O3RTbgBAkVDHtroZVESKC9H66/2h5GvDQItJvtS/lJfH92KIToC5U/fy5jPfGN8BDp9tq8ppXsKcZQPhPPx+WdpUWgGqQj0/vZq/1n+jT0EOh/ta8wrCwyaIbhASEWg89EOX5fs+edAoBsLmMXhYF5zPr4a54Ic5wPi9PL10U3oo9gDlWQfZ3ug4vDafqsQaI7g5vJKMVClxPl48IiBWoFyhrBRXN+zjyHMBMSup31/WyBQEeAkIyAy0zvvI4he+HbdIczMNMaoZmsXG1yt25woyOq1kZAIS6DJaVg1WzOvOuxSoCAJTKCJSUY1W7vYyAqBQiEYgeZixM5sLX/+hkChEIxANq5p5v83qQQqZ7L7jIGCJByB5mNE9zojmadAVdRdsEeiRwgC+eIEykt5/ASqom4TmLNHokV0AtmlWC+BqqjbDYsZS9w6RCdQXu2lzS6I1FG3i87HtlRASHQCWTxjoLbLCm8L4LGslzqTvkAu/CEI6rJi6gwC7ZA1U2diEmgxDGETINA8CkF0OkuYK6XOpC/QqtP4ZLZxV0udiVYgn3lEsfZCYkrbuNOpM97EKlBWGjGbH1wFPuvNWZPaxl3nSxWpQHYeYXc1tiStbdx18vMjFeghc/MF27hhs2Z6ddwCbZvh6b+NGzrzqTPeRCpQNTffVCD/bdzwWS+9OlKBqiB6U4G8t3F3RawCme/Qhx9/23x/IpEeaD2iFcjQnvPZDAQaEJFAjS7ND1tP4y8IdIWKQK6an2O1+kDNsTDzg60dww57AOj0QOMnmheXF65pjoW5H4yj+BMASkPYbK7AUoGaY2G9ah6B8IBYLBi0YqC5Nb47YqDGm9AEas9c75CIgmgfgfIHrNMUo4HeHkhLIJMktfH+xuSYenoJrzL4yiQlkIu8tj8CNtagopzzu1qj6bIrgQqlzYiRBrntysRPpCUlkNcQptAljDQouHqGGkQnUDllNj+MZBl61FFQ6BFGBCo+/Di2qcfvb5064eksaMcmkJkylz+MZLRm5UtOL5N5LjN/fBcjAuVmdlaviL2/lU3Oq5A6mdz8qAQydItKX2+F+ZzgyRRCkjGBnjon0jpts33RX91rol+DjEugeso8ktHqkejq1FuZMYHcmNvtKE3b3t9+96dvv3d9UfxrkHEJdOkfVx6Gyx65viobsKMxkBWoG0q7MfbP37Pnf9u/R/xrkHEKNJbROh8DbRm9uhsfunYVh9c6N/8/dsIY3r7eUuIU6CqjtZ7imFzfqXmYygg2Sj7IXS/suOVy8/9V5RYgkPJzh7QFFTsZre0UZ+YY6sZ3lRS9G75s/1Pl5v+x+v8IpP3cId2i0s0MppnizB2Ef2QOWu6c6efmI5D2c4d0fuPDaXxpx9xE/oH7Ct2IrTj8oWo6Amk/d0i1nHgro7UMocMtBtSN7fPDX54RaKPnDnG/8VsZrSbECLccWTVymZaVfVGGQFs915vi0PRKIQrU0ltnQCDt5/rSmeIE/ql0+qLQm+pBKgJVUxyKQivR5hIM8iASEai9IZGy9Bq0C23DCsFBC+QWenqJNCMvbMIKLsZQoenZryoEhyyQ26ruJdKM0JvicOBQi/qbGYlA1VY1YU0w1LlUuf4QZoed8ZPxPm/X36pmWHo8bqI7qBCsI1BeP6IYC1683q4jkEYi4da0wVyU58WKpsndCsEqAnVSGMYqsCwUaFTEiOikDMR4Xqz7EXTGAxWBXCaVe1S/51hWnaM9yBPf9/WaQcpAZFFd3v0Kd7JiouiBUuh/akzKQITnxeqFtqusYa0YqDJ0lRgoT8gfE8z1z4tFQbvQNqwQrDQLq2uUjWYgLxBo22K+yphvVO+8WBx0FtoGFYIDXgdqEuij+q5OY4O53nmx2AlfoN7mdeS4Ef3GebF4CVqg1KiCuRvnxeJlsUBNDTDZNHSPAtXB3PV5sYhZKpAZv90aGAItpA3mhufFYmahQO6vbZeyEWghnWCuf14sNJotFzeXnp4tLhSoXmPOnn8iUKK0Wy4+YdpdPdDFJP0hUKK0+TM+YdriGKi5b0BWVwKBAsfsl+Yea513zMLq7GMEShmTP5N9mY/VWAeCW5glz/PR7ERl0wYhENygkz8zEwghEFzTTaKY2XJBILiinzw2PZdHIBgymjx2CwSCAZ3kMXtzxPpBtF3hFharRKBgGU8eu8UdArmU/FyWoINAibBcoPe3Zjtsi+dC2CwX6FzVRpXlsyBQItzfA8kubUegRLgnBjrcLhPfonJvPATJHUPYvB0eO60IlAhq1TlWvjc+WZr0P486WiGitZCocG98kjTpfz51tELkDoHqMeyeWdiy4go7oEn/i7WO1j2zsDVuTEKgLk25lPjqaN0TRPueqJw6uYJAXZryWfHV0bqnB/KN9BDIk2K2oFu43BEDeZ/JRSA/mvS/GOto3SPQi2cQjUBexNz/3DeE+X5NEMiHJv0vzjpamkH0Ks9NnWZLKNI6WppB9CrPTZwm/S/WOlqaQfQqz02cJv0v1jpags1U8oGApHoQgkAg4h6B7EKQcLBGoES4KyPRlhqVzToRKBHun8aTEw0XyUIipzLgQg8EQoiBQASzMBDBOhCIQCAQsVgglw4k3jtGoERYKpCr3Nn+W/25EDZLBWqKupyPU33Q7J0+CJQICwXyuE7X/tnsnT4IlAgLBRq/0LuLx50+0QgU6ZH1zVgsUNsDjQvkcadPLALFemR9MxbHQM2vcqLEncedPrEIFOuR9c1YKlBTt3yygPn8nT6xCOSI78j6ZixeB6pOv80cYhq70yfS6hzxHVnfjHt24+fvQVzxuSEQ5ZHRjdDcykjlZGqMR9Y3A4Fmof+ZAoGuOH22AU+9mB7nkfXNQKAh56ONmM1iuin0GOmR9c1AoAGFO3Lrkg6yj7EeWd8M8oH6lAFP0RUo1iPrm4FAVxS9IQymQaArql3ign7HBwS6wglkFp8JgOZBoCusQGyieoJAV1iB3PYpm6izINAVnR5Idnx7FyDQFcRAS0CgK6puJyOV1QcEAhEIBCIQCEQgEIhAIBCBQCtgU9CK6rTAzvZfEUhOlYLmftxb+jQCiSk6tz7sb/NMU6CphIh0BKpT0Aw7XLpWEig7HF5Pv/4cv1wsHYEunS2zHR5A1BHInJvPbO8zVgQmSYGmayaliYpAtt9x14qN7WcnKdAesz+UBLL1gf572VkPNFGwJFl0hrBmMjLaqaco0B5HMK0gOned+dWxhkirc8xQCTRZ8SZVWAdagfocxw5DIE6mrkEl0P5WES8IBEIQCEQgEIhAIBDBLAxEIBCIQCAQgUAgAoFABAKBCAQCEQgEIhAIRCAQiEAgEIFAIAKBQAQCgQgEAhEIBCJUBZo454JAiaB0MrU9/xXc0ebqQsLTi/zmYNDqgaprRkPsgapqUMXzzx1Wg1JAaQg7H80x8QAFai4kNIbv8iDXyqjFQKa6S3gC1dWgXOkQkKMXROeH1/AEutSX8Xz4ceQmgzVQnIWdXn65EiiA4gpWoNwMZO5eVBChey5svObtowV6mqp+Bf7s72ChE8iqs8t6LCuzU4Fc30MoLWenArnqsQxhcnYqkK3dONU+8GSvAtmrLfBHTmK78W6jy+3FMUffgrQEqja6CI63IymB6mtPCI63IyWBmmtPckavzUhJoEtz5/sXIuStSFEgl0uSYdAWpCjQ1Y+gR7oCsdG1CQkLxFx+C1IUyPU9DGGbkKJAl8xM4wmiNyFJgcyVrXu7v/1RJCYQbM3DBIJEeJBAKii3kbeP+fk+xP0RxP32wT/fh7g/grjfPvjn+xD3RxD32wf/fB/i/gjifvvgn+9D3B9B3G8f/PN9iPsjiPvtg3++D3F/BHG/ffDP9yHujyDutw/++RA5CAQiEAhEIBCIQCAQgUAgAoFABAKBCAQCEQgEIhAIRCAQiEAgEBGBQO9vB72yQMXh8KR32F616Y7M1Lx5IOEL9P5WfsK5Um3NonzvQs0g1aY7igMCzeBqKujcAeYqFmdan7Bm0x3nIwL5odNN6H/CF62mO/LnbwjkRabyIbtiQ8oVY3SabinbTwzkRaETirrOQbOLUGu6wYzACORDoRhDKwuk1XSDuRkEgTxQ+xLrD2GK/Y9rPQJNkLtVlFztQ1APovWafnG/HsNDa24FLZAj1/sNKU/jNZteQw80x+lF8Uusu5Co2vQKBJqj6qiVPuVccytDt+kOBIKoQSAQgUAgAoFABAKBCAQCEQgEIhAIRCAQiEAgEIFAIAKBQAQCgQgEAhEIBCIQCEQgEIhAIBCBQCACgUAEAoEIBAIRCAQiEAhEIBCIQCAQgUAgAoFGsTV6F5w8P31WrZQXKAg0hisNlXlXRjgfdUstBgoCjeBqT5XdkGcfVBwOCAQteSXO/4wVhSuVdnr5x7H84fRiqoKdPv3zpS1DX/ZXysVeAwWBbvP+1ilbVpS+nI8fS4Fs5flSlPzDb6VGX+2fNK9CIGg4H9viYq4QXvH03VYcq/7x1ZUfy9sRDoGgpSuQC4esM1+r/6r/o1sfD4GgpTuEOVXOx4FAnwY1phEIOtRjUxnljPRACGRAoBE60/hODNQbwuw6ETEQ3MYuJNobvzqzsJ5ApkQws7BHNyBczsdmK6NZB+oJ9PeXXpV4BIIlVGPc3kGge0EgCwLdCwJZEAhEIBCIQCAQgUAgAoFABAKBCAQCEQgEIhAIRCAQiEAgEIFAIAKBQAQCgQgEAhEIBCIQCEQgEIhAIBCBQCACgUDE/wGMPxMr71qnEgAAAABJRU5ErkJggg==" /><!-- --></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Block loadings for Chemical block with variable labels in scatter format</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">loadings</span>(pot.cca, <span class="st">&quot;Chemical&quot;</span>), <span class="at">labels =</span> <span class="st">&quot;names&quot;</span>, <span class="at">scatter =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Non-existing elements are swapped with existing ones with a warning.</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>sc <span class="ot">&lt;-</span> <span class="fu">scores</span>(pot.cca)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning in scores.multiblock(pot.cca): No global/consensus scores. Returning</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; block 1 scores.</span></span></code></pre></div>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

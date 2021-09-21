@@ -1,0 +1,201 @@
+---
+title: "C. Unsupervised multiblock analysis"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  %\VignetteIndexEntry{C. Unsupervised multiblock analysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width=6, 
+  fig.height=4
+)
+# Legge denne i YAML på toppen for å skrive ut til tex
+#output: 
+#  pdf_document: 
+#    keep_tex: true
+# Original:
+#  rmarkdown::html_vignette:
+#    toc: true
+```
+
+```{r setup}
+# Start the multiblock R package
+library(multiblock)
+```
+
+# Unsupervised methods
+
+The following unsupervised methods are available in the _multiblock_ package (function names in parentheses):
+
+* SCA - Simultaneous Component Analysis (_sca_)
+* GCA - Generalised Canonical Analysis (_gca_)
+* GPA - Generalised Procrustes Analysis (_gpa_)
+* MFA - Multiple Factor Analysis (_mfa_)
+* PCA-GCA (_pcagca_)
+* DISCO - Distinct and Common Components with SCA (_disco_)
+* HPCA - Hierarchical Principal component analysis (_hpca_)
+* MCOA - Multiple Co-Inertia Analysis (_mcoa_)
+* JIVE - Joint and Individual Variation Explained (_jive_)
+* STATIS - Structuration des Tableaux à Trois Indices de la Statistique (_statis_)
+* HOGSVD - Higher Order Generalized SVD (_hogsvd_)
+
+The following sections will describe how to format your data for analysis and invoke all methods from the list above.
+
+
+# Formatting data for multiblock data analysis
+
+Data blocks are best stored as named lists for use with unsupervised methods in
+this package. If also column names and row names are used for all blocks, these
+can be used for easy labelling in plots supplied by the _pls_ package. See 
+examples below for illustrations of this.
+
+```{r}
+# Load potato data
+data(potato)
+class(potato)
+# data.frames can contain matrices as variables, 
+# thus becoming object linked lists of blocks.
+str(potato[1:3])
+
+# Explicit conversion to a list
+potList <- as.list(potato[1:3])
+str(potList)
+```
+
+
+# Method interfaces
+
+All unsupervised methods supplied by this package share a common interface which expects a list of blocks as the first input. Methods that are imported from other packages are wrapped in a function that gives the mentioned interface. Results from the imported method are stored in a separate slot in the output in case specialised _plot_ or _summary_ functions are available or direct inspection is needed. If default parameters are used, a single list of blocks with suitably linked matrices (shared objects or variables) will result in a basic analysis (see first code block below). In addition, all methods have parameters that control their behaviour, e.g., number of components, convergence criteria etc.
+
+## Shared sample mode
+
+The following block of code loads a multiblock data set, extracts three blocks and runs through all included unsupervised methods having shared sample mode using the same interface. 
+
+```{r}
+# Object linked data
+data(potato)
+potList <- as.list(potato[c(1,2,9)])
+
+suppressWarnings( # FactoMineR <=2.3 uses recycling of length 1 array.
+invisible({capture.output({ # DISCOsca in package RegularizedSCA is highly verbose.
+pot.sca    <- sca(potList)
+pot.gca    <- gca(potList)
+pot.gpa    <- gpa(potList)
+pot.mfa    <- mfa(potList)
+pot.pcagca <- pcagca(potList)
+pot.disco  <- disco(potList)
+pot.hpca   <- hpca(potList)
+pot.mcoa   <- mcoa(potList)
+})}))
+```
+
+## Shared variable mode
+
+The following block of code loads a sensory data set, extracts blocks and runs through all included unsupervised methods having shared variable mode using the same interface. 
+
+```{r}
+# Shared variable mode data
+data(candies)
+candyList  <- lapply(1:nlevels(candies$candy), function(x)candies$assessment[candies$candy==x,])
+
+invisible({capture.output({ # jive in package r.jive is highly verbose.
+can.sca    <- sca(candyList, samplelinked = FALSE)
+can.jive   <- jive(candyList)
+can.statis <- statis(candyList)
+can.hogsvd <- hogsvd(candyList)
+})})
+```
+
+## Common output elements across methods
+
+Output from all methods include slots called _loadings_, _scores_, _blockLoadings_
+and _blockScores_, or a suitable subset of these. An _info_ slot describes which
+types of (block) loadings/scores are in the output. There may be various extra
+elements in addition to the common elements, e.g. coefficients, weights etc.
+
+```{r}
+# SCA used with shared variable mode data returns block loadings and common scores:
+names(pot.sca)
+summary(pot.sca)
+# MFA stores individual PCA scores and loadings as block elements:
+names(pot.mfa)
+summary(pot.mfa)
+```
+
+## Scores and loadings
+
+Functions for accessing scores and loadings are based on functions
+from the _pls_ package, but extended with a _block_ parameter to
+allow extraction of common/global scores/loadings and their block
+counterparts. The default block is 0, corresponding to the common/global
+block. Block scores/loadings can be accessed by number or name.
+
+```{r}
+# Global scores plotted with object labels
+scoreplot(pot.sca, labels = "names")
+```
+
+```{r}
+# Block loadings for Sensory block with variable labels in scatter format
+loadingplot(pot.sca, block = "Sensory", labels = "names")
+```
+
+
+```{r}
+# Non-existing elements are swapped with existing ones with a warning.
+sc <- scores(pot.sca, block = 1)
+```
+
+
+## Plot from imported package
+
+Some methods in the package are wrappers for imported methods from other
+packages. Using the stored object from an imported method (see \$statis code below), one can
+exploit methods from the original package to expand on the
+methods available in this package. An example is the summary
+plot for the _statis_ method in the package _ade4_.
+
+```{r}
+# Apply a plot function from ade4 (no extra import required).
+plot(can.statis$statis)
+```
+
+
+
+<!-- # Simultaenous Component Analysis - SCA -->
+
+<!-- SCA will be demonstrated using sensory wine data. -->
+
+<!-- ## Modelling -->
+
+<!-- An SCA model with three blocks and 4 components is fitted. -->
+
+<!-- ```{r} -->
+<!-- data(wine) -->
+<!-- sc <- sca(wine[c('Smell at rest', 'View', 'Smell after shaking')], ncomp = 4) -->
+<!-- print(sc) -->
+<!-- ``` -->
+
+<!-- ## Loadings and scores -->
+
+<!-- When extracting loadings and scores from an _sca_, one of them will be a list depending on sample or variable linking. The Wine data are sample linked, i.e. there are several loading blocks. -->
+
+<!-- ```{r} -->
+<!-- # Extract and plot loadings -->
+<!-- loads <- loadings(sc, 'View') -->
+<!-- plot(loads)#[['View']]) -->
+<!-- # or -->
+<!-- plot(loadings(sc, 'View')) -->
+<!-- #plot(blockLoadings(sc, 'View')) -->
+
+<!-- # Plot scores -->
+<!-- scoreplot(sc) -->
+<!-- ``` -->
+
