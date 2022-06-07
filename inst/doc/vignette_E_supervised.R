@@ -30,7 +30,7 @@ so.abc <- sopls(y ~ A + B + C, data = ABC, ncomp = c(4,3,4))
 
 ## -----------------------------------------------------------------------------
 data(potato)
-mb <- mbpls(potato[c('Chemical','Compression')], potato[['Sensory']], ncomp = 10,
+mb <- mbpls(X=potato[c('Chemical','Compression')], Y=potato[['Sensory']], ncomp=10,
             max_comps=10, validation="CV", segments=10)
 print(mb)
 
@@ -43,14 +43,14 @@ loadingplot(mb, block = 1, labels = "names")
 
 ## -----------------------------------------------------------------------------
 data(potato)
-smb <- smbpls(potato[c('Chemical','Compression')], potato[['Sensory']], ncomp = 10,
+smb <- smbpls(X=potato[c('Chemical','Compression')], Y=potato[['Sensory']], ncomp = 10,
             max_comps=10, shrink = 0.6, validation="CV", segments=10)
 print(smb)
 
 ## -----------------------------------------------------------------------------
 old.par <- par(mfrow = c(3,2), mar = c(3.5,3.5,1.5,1), mgp = c(2,1,0))
 for(shrink in c(0.2, 0.5, 0.8)){
-  smb <- smbpls(potato[c('Chemical','Compression')], potato[['Sensory']], ncomp = 10,
+  smb <- smbpls(X=potato[c('Chemical','Compression')], Y=potato[['Sensory']], ncomp = 10,
             max_comps=10, shrink = shrink)
   scoreplot(smb, labels = "names", main = paste0("Superscores, shrink=", shrink))
   loadingweightplot(smb, labels = "names", main = paste0("Super-loading weights, shrink=", shrink))
@@ -220,7 +220,7 @@ image(ros.pot, "residual")
 potatoList <- lapply(potato, unclass)
 
 # Perform mbRDA with two blocks explaining sensory attributes
-mbr <- mbrda(potatoList[c('Chemical','Compression')], potatoList[['Sensory']], ncomp = 5)
+mbr <- mbrda(X = potatoList[c('Chemical','Compression')], Y = potatoList[['Sensory']], ncomp = 5)
 print(mbr)
 
 ## -----------------------------------------------------------------------------
