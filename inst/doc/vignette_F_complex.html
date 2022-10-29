@@ -120,13 +120,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -335,17 +342,17 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <div id="TOC">
 <ul>
-<li><a href="#complex-data-structures">Complex data structures</a>
+<li><a href="#complex-data-structures" id="toc-complex-data-structures">Complex data structures</a>
 <ul>
-<li><a href="#l-pls">L-PLS</a></li>
-<li><a href="#simulated-l-shaped-data">Simulated L-shaped data</a></li>
-<li><a href="#exo-l-pls">Exo-L-PLS</a></li>
-<li><a href="#endo-l-pls">Endo-L-PLS</a></li>
-<li><a href="#l-pls-cross-validation">L-PLS cross-validation</a></li>
-<li><a href="#so-pls-path-modelling">SO-PLS Path Modelling</a>
+<li><a href="#l-pls" id="toc-l-pls">L-PLS</a></li>
+<li><a href="#simulated-l-shaped-data" id="toc-simulated-l-shaped-data">Simulated L-shaped data</a></li>
+<li><a href="#exo-l-pls" id="toc-exo-l-pls">Exo-L-PLS</a></li>
+<li><a href="#endo-l-pls" id="toc-endo-l-pls">Endo-L-PLS</a></li>
+<li><a href="#l-pls-cross-validation" id="toc-l-pls-cross-validation">L-PLS cross-validation</a></li>
+<li><a href="#so-pls-path-modelling" id="toc-so-pls-path-modelling">SO-PLS Path Modelling</a>
 <ul>
-<li><a href="#single-so-pls-pm-model">Single SO-PLS-PM model</a></li>
-<li><a href="#multiple-paths-in-an-so-pls-pm-model">Multiple paths in an
+<li><a href="#single-so-pls-pm-model" id="toc-single-so-pls-pm-model">Single SO-PLS-PM model</a></li>
+<li><a href="#multiple-paths-in-an-so-pls-pm-model" id="toc-multiple-paths-in-an-so-pls-pm-model">Multiple paths in an
 SO-PLS-PM model</a></li>
 </ul></li>
 </ul></li>

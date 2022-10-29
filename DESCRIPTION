@@ -2,8 +2,8 @@ Encoding: UTF-8
 Package: multiblock
 Type: Package
 Title: Multiblock Data Fusion in Statistics and Machine Learning
-Version: 0.8.2
-Date: 2022-06-06
+Version: 0.8.3
+Date: 2022-10-29
 Authors@R: 
     c(person(given = "Kristian Hovde",
              family = "Liland",
@@ -30,14 +30,14 @@ Imports: ade4, car, FactoMineR, geigen, lme4, MASS, mixlm, plotrix,
         RGCCA, RSpectra, SSBtools
 Suggests: rmarkdown, knitr
 LinkingTo: Rcpp, RcppEigen
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.1
 VignetteBuilder: knitr
 NeedsCompilation: yes
-Packaged: 2022-06-07 20:37:17 UTC; kristian
+Packaged: 2022-10-29 21:10:13 UTC; kristian
 Author: Kristian Hovde Liland [aut, cre]
     (<https://orcid.org/0000-0001-6468-9423>),
   Solve Sæbø [ctb],
   Stefan Schrunner [rev]
 Maintainer: Kristian Hovde Liland <kristian.liland@nmbu.no>
 Repository: CRAN
-Date/Publication: 2022-06-07 21:00:02 UTC
+Date/Publication: 2022-10-29 21:37:43 UTC

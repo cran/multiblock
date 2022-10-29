@@ -120,13 +120,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -335,18 +342,21 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <div id="TOC">
 <ul>
-<li><a href="#unsupervised-methods">Unsupervised methods</a></li>
-<li><a href="#formatting-data-for-multiblock-data-analysis">Formatting
-data for multiblock data analysis</a></li>
-<li><a href="#method-interfaces">Method interfaces</a>
+<li><a href="#unsupervised-methods" id="toc-unsupervised-methods">Unsupervised methods</a></li>
+<li><a href="#formatting-data-for-multiblock-data-analysis" id="toc-formatting-data-for-multiblock-data-analysis">Formatting data
+for multiblock data analysis</a></li>
+<li><a href="#method-interfaces" id="toc-method-interfaces">Method
+interfaces</a>
 <ul>
-<li><a href="#shared-sample-mode">Shared sample mode</a></li>
-<li><a href="#shared-variable-mode">Shared variable mode</a></li>
-<li><a href="#common-output-elements-across-methods">Common output
-elements across methods</a></li>
-<li><a href="#scores-and-loadings">Scores and loadings</a></li>
-<li><a href="#plot-from-imported-package">Plot from imported
-package</a></li>
+<li><a href="#shared-sample-mode" id="toc-shared-sample-mode">Shared
+sample mode</a></li>
+<li><a href="#shared-variable-mode" id="toc-shared-variable-mode">Shared
+variable mode</a></li>
+<li><a href="#common-output-elements-across-methods" id="toc-common-output-elements-across-methods">Common output elements
+across methods</a></li>
+<li><a href="#scores-and-loadings" id="toc-scores-and-loadings">Scores
+and loadings</a></li>
+<li><a href="#plot-from-imported-package" id="toc-plot-from-imported-package">Plot from imported package</a></li>
 </ul></li>
 </ul>
 </div>
@@ -482,7 +492,7 @@ etc.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SCA used with shared variable mode data returns block loadings and common scores:</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pot.sca)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;blockLoadings&quot; &quot;scores&quot;        &quot;samplelinked&quot;  &quot;info&quot;         </span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [5] &quot;explvar&quot;       &quot;call&quot;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [5] &quot;explvar&quot;       &quot;call&quot;          &quot;data&quot;</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pot.sca)</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Simultaneous Component Analysis </span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; =============================== </span></span>
@@ -493,17 +503,18 @@ etc.</p>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># MFA stores individual PCA scores and loadings as block elements:</span></span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pot.mfa)</span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;scores&quot;        &quot;loadings&quot;      &quot;blockScores&quot;   &quot;blockLoadings&quot;</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [5] &quot;info&quot;          &quot;MFA&quot;           &quot;call&quot;          &quot;explvar&quot;</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pot.mfa)</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Multiple Factor Analysis </span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ======================== </span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $scores: Global scores (26x5)</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $loadings: Global loadings (35x5)</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $blockScores: Individual PCA scores:</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; - Chemical (26x5), Compression (26x5), Sensory (26x5)</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $blockLoadings: Individual PCA loadings:</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; - Chemical (14x5), Compression (12x5), Sensory (9x5)</span></span></code></pre></div>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [5] &quot;info&quot;          &quot;MFA&quot;           &quot;call&quot;          &quot;explvar&quot;      </span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [9] &quot;data&quot;</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pot.mfa)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Multiple Factor Analysis </span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ======================== </span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $scores: Global scores (26x5)</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $loadings: Global loadings (35x5)</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $blockScores: Individual PCA scores:</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; - Chemical (26x5), Compression (26x5), Sensory (26x5)</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $blockLoadings: Individual PCA loadings:</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; - Chemical (14x5), Compression (12x5), Sensory (9x5)</span></span></code></pre></div>
 </div>
 <div id="scores-and-loadings" class="section level2">
 <h2>Scores and loadings</h2>

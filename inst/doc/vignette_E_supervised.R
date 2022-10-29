@@ -137,6 +137,7 @@ RMSEP(so.pot20, newdata = testset, ncomp = c(2,1,2))
 PCP <- pcp(so.pot, c(3,2))
 summary(PCP)
 scoreplot(PCP)
+corrplot(PCP)
 
 ## -----------------------------------------------------------------------------
 # CVANOVA

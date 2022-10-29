@@ -120,13 +120,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -335,13 +342,14 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <div id="TOC">
 <ul>
-<li><a href="#basic-methods">Basic methods</a>
+<li><a href="#basic-methods" id="toc-basic-methods">Basic methods</a>
 <ul>
-<li><a href="#prepare-data">Prepare data</a></li>
-<li><a href="#modelling">Modelling</a></li>
-<li><a href="#common-output-elements-across-methods">Common output
-elements across methods</a></li>
-<li><a href="#scores-and-loadings">Scores and loadings</a></li>
+<li><a href="#prepare-data" id="toc-prepare-data">Prepare data</a></li>
+<li><a href="#modelling" id="toc-modelling">Modelling</a></li>
+<li><a href="#common-output-elements-across-methods" id="toc-common-output-elements-across-methods">Common output elements
+across methods</a></li>
+<li><a href="#scores-and-loadings" id="toc-scores-and-loadings">Scores
+and loadings</a></li>
 </ul></li>
 </ul>
 </div>
