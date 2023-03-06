@@ -1,6 +1,6 @@
-12818d4ee25975c29c01059dae42f970 *DESCRIPTION
+aab20a4f4ec7d60640f514444f505f48 *DESCRIPTION
 6847fad58c3b76daf766a54f4cecc0c7 *NAMESPACE
-f824f61d1413b6cb097aa6131787219d *NEWS
+6818e147d8a0090b0d366d46e72d5ea3 *NEWS
 09c20cd478f24b76162cfe6988a0c55e *R/RcppExports.R
 1cbf176380aaaece08834142718b3bd8 *R/asca.R
 733257888ee6597dfb69a3bca098f490 *R/asca_plots.R
@@ -27,9 +27,9 @@ c16dc21f37c13aa67a3df5206e343cf8 *R/rosa_results.R
 ef3d7d5013fc2b6f7923816ee7923170 *R/sopls_plots.R
 96ad25324fd80f94a113e73df8ef4e46 *R/sopls_pm.R
 620375f8384adf0f5d08061ed4968285 *R/sopls_results.R
-621ba64d65b564afdff035af8688b070 *R/supervised.R
+027a8cb101366b8b42328c53e4a9e75c *R/supervised.R
 82a4788d0d0d055551b8df25b4237453 *R/unsupervised.R
-0380a460a57e8f24693185f7b8a3c278 *R/utilities.R
+c65ad0635dffeaf2ad7dc4ddd09860e4 *R/utilities.R
 1f1fea20e8f54892b1e5defda5fca1e3 *README.md
 6d5b8d0c99a208257c6c170745d0b287 *build/vignette.rds
 0afcd7af235335e26919c8239a70e76e *data/candies.rda
@@ -50,7 +50,7 @@ d02fe71edda6d127d2e2cc1e2e3f9380 *inst/doc/vignette_D_asca.Rmd
 db9c4320a98dfbf89ac2d81e702fa104 *inst/doc/vignette_D_asca.html
 051349339fee0b5845a2421cd93728fe *inst/doc/vignette_E_supervised.R
 4326aa4092bddd11117a70274b23598c *inst/doc/vignette_E_supervised.Rmd
-f13fba1ee0fead925b3b0d95edc7ceed *inst/doc/vignette_E_supervised.html
+6044252b125c10cd48925c48ec51d81b *inst/doc/vignette_E_supervised.html
 4a70e6e53f427137a5eb32d19527d7c5 *inst/doc/vignette_F_complex.R
 098cff778f0a71dd4b22960784d49fb3 *inst/doc/vignette_F_complex.Rmd
 401192f8b696143ccc455bdc58e322ca *inst/doc/vignette_F_complex.html
