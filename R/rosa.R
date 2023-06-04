@@ -123,7 +123,12 @@ rosa <- function(formula, ncomp, Y.add, common.comp = 1, data,
   # names(X) <- colnames(mf)[-1]
   X <- lapply(X, function(x)if(is.factor(x)){return(dummycode(x))}else{return(x)})
   X.concat <- do.call(cbind,X)
-
+  # Check for missing dimnames
+  if(is.null(rownames(X.concat)))
+    rownames(X.concat) <- 1:nrow(X.concat)
+  if(is.null(colnames(X.concat)))
+    colnames(X.concat) <- 1:ncol(X.concat)
+  
   y <- switch(response.type,
               continuous = Y,
               categorical = Y.dummy
@@ -502,7 +507,7 @@ rosa.fit <- function(X, X.concat, y, Y.add, ncomp, common.comp, weights, fixed.o
   PtW <- crossprod(P,W); PtW[lower.tri(PtW)] <- 0 # The W-coordinates of (the projected) P.
   R   <- mrdivide(W,PtW)        # The "SIMPLS weights"
   q   <- crossprod(y.orig,T)    # Regression coeffs (Y-loadings) for the orthogonal scores
-  U   <- y.orig %*% q / rep(colSums(q^2), each=nresp)
+  U   <- y.orig %*% (q / rep(colSums(q^2), each=nresp))
   if(ncomp > 1)
     for(a in 2:ncomp)
       U[,a] <- U[,a] - T[,1:a] %*% crossprod(T[,1:a], U[,a])
