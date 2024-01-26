@@ -1096,7 +1096,8 @@ components.</p>
 <span id="cb26-16"><a href="#cb26-16" tabindex="-1"></a><span class="co">#&gt;       68.14595 </span></span>
 <span id="cb26-17"><a href="#cb26-17" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb26-18"><a href="#cb26-18" tabindex="-1"></a><span class="co">#&gt; $NIRraw</span></span>
-<span id="cb26-19"><a href="#cb26-19" tabindex="-1"></a><span class="co">#&gt; named numeric(0)</span></span></code></pre></div>
+<span id="cb26-19"><a href="#cb26-19" tabindex="-1"></a><span class="co">#&gt; D(3), Comp 1 </span></span>
+<span id="cb26-20"><a href="#cb26-20" tabindex="-1"></a><span class="co">#&gt;     42.53836</span></span></code></pre></div>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="co"># Manual choice of up to 5 components for each block and 1, 0, and 2 blocks,</span></span>
 <span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a><span class="co"># respectively from the (1,2), (1,3) and (2,3) combinations of blocks.</span></span>
 <span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a>pot.po.man <span class="ot">&lt;-</span> <span class="fu">popls</span>(potato[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], potato[[<span class="st">&#39;Sensory&#39;</span>]][,<span class="dv">1</span>], <span class="at">commons =</span> <span class="dv">2</span>,</span>
@@ -1111,15 +1112,15 @@ components.</p>
 <span id="cb27-12"><a href="#cb27-12" tabindex="-1"></a>pot.po.man<span class="sc">$</span>explVar</span>
 <span id="cb27-13"><a href="#cb27-13" tabindex="-1"></a><span class="co">#&gt; $Chemical</span></span>
 <span id="cb27-14"><a href="#cb27-14" tabindex="-1"></a><span class="co">#&gt; C(1,2), Comp 1   D(1), Comp 1   D(1), Comp 2 </span></span>
-<span id="cb27-15"><a href="#cb27-15" tabindex="-1"></a><span class="co">#&gt;       32.22944   -72871.76265   -49467.54832 </span></span>
+<span id="cb27-15"><a href="#cb27-15" tabindex="-1"></a><span class="co">#&gt;       32.22944       20.74357       20.87956 </span></span>
 <span id="cb27-16"><a href="#cb27-16" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb27-17"><a href="#cb27-17" tabindex="-1"></a><span class="co">#&gt; $Compression</span></span>
-<span id="cb27-18"><a href="#cb27-18" tabindex="-1"></a><span class="co">#&gt; C(1,2), Comp 1 C(2,3), Comp 1 C(2,3), Comp 2   D(2), Comp 1   D(2), Comp 2 </span></span>
-<span id="cb27-19"><a href="#cb27-19" tabindex="-1"></a><span class="co">#&gt;      68.145954       5.504006       7.214911  -13225.718233       0.000000 </span></span>
+<span id="cb27-18"><a href="#cb27-18" tabindex="-1"></a><span class="co">#&gt; C(1,2), Comp 1 C(2,3), Comp 1 C(2,3), Comp 2 </span></span>
+<span id="cb27-19"><a href="#cb27-19" tabindex="-1"></a><span class="co">#&gt;      68.145954       5.504006       7.214911 </span></span>
 <span id="cb27-20"><a href="#cb27-20" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb27-21"><a href="#cb27-21" tabindex="-1"></a><span class="co">#&gt; $NIRraw</span></span>
-<span id="cb27-22"><a href="#cb27-22" tabindex="-1"></a><span class="co">#&gt; C(2,3), Comp 1 C(2,3), Comp 2   D(3), Comp 1   D(3), Comp 2   D(3), Comp 3 </span></span>
-<span id="cb27-23"><a href="#cb27-23" tabindex="-1"></a><span class="co">#&gt;      32.606459       5.475702    -552.399938      15.775647       3.303994</span></span></code></pre></div>
+<span id="cb27-22"><a href="#cb27-22" tabindex="-1"></a><span class="co">#&gt; C(2,3), Comp 1 C(2,3), Comp 2 </span></span>
+<span id="cb27-23"><a href="#cb27-23" tabindex="-1"></a><span class="co">#&gt;      32.606459       5.475702</span></span></code></pre></div>
 </div>
 <div id="scores-and-loadings" class="section level2">
 <h2>Scores and loadings</h2>

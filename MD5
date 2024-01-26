@@ -1,6 +1,6 @@
-c58f290d375a7795febd048ad9cd10c2 *DESCRIPTION
+112383e25f14db474d33ed2e6752e4ba *DESCRIPTION
 6b2a19f1e8a3ea2c27756f237a7b19d4 *NAMESPACE
-d1224fc753ef154c4561a33494240873 *NEWS
+d2dc59bedcbe054ec16f9bdf5cd77277 *NEWS
 365712d194bd9ab41ea08e2a8a4460c5 *R/DISCOsca.R
 09c20cd478f24b76162cfe6988a0c55e *R/RcppExports.R
 79b84b57b77d59e29b9e2842f3799b5b *R/asca.R
@@ -18,7 +18,7 @@ a16842fe900451b3611596d70097c8e3 *R/maage.R
 cf470a9e35cd9657b7df245519173546 *R/multiblock-package.R
 91c2b22d645ea616f3be22891952293d *R/multiblock_plots.R
 ab4ec40d15244c609aba7c6d59a58ec1 *R/multiblock_results.R
-58e0df35563d2805d6db29a5d29cd8f1 *R/popls.R
+f79ddfcbda73dfdd1c42b7a0392c7131 *R/popls.R
 a298fcedc015cfef41f72aa60556de4f *R/preprocess.R
 4ae8a9e2fc8027ce6447b6938f646400 *R/rosa.R
 a4edafff28bc1cae6e66f0857a161068 *R/rosaCV.R
@@ -52,7 +52,7 @@ d02fe71edda6d127d2e2cc1e2e3f9380 *inst/doc/vignette_D_asca.Rmd
 64cdbdb4064ea8b9272b20e10dd642c5 *inst/doc/vignette_D_asca.html
 b7dfa4bd16ee17db8a4d391e0b1cb7e5 *inst/doc/vignette_E_supervised.R
 4326aa4092bddd11117a70274b23598c *inst/doc/vignette_E_supervised.Rmd
-e026ba32167392dbd3fa0cb022ff41dc *inst/doc/vignette_E_supervised.html
+dd3a6acfbbb6b66f25d729b948b6f074 *inst/doc/vignette_E_supervised.html
 4a70e6e53f427137a5eb32d19527d7c5 *inst/doc/vignette_F_complex.R
 098cff778f0a71dd4b22960784d49fb3 *inst/doc/vignette_F_complex.Rmd
 e198f70286e596b55744cf0a972e3fd3 *inst/doc/vignette_F_complex.html
@@ -94,12 +94,12 @@ ea50470289f561dee5618d44cc7038f5 *man/maage.Rd
 2d4f437321dc7c9e0c86cea5e2626636 *man/mcoa.Rd
 a9a2044aa68a47538acaefcd82ece7ab *man/mcolors.Rd
 abc7fc73dab6f32594f85171a46e822b *man/mfa.Rd
-86fa2b3f8d36bd61134e1ec45adce78f *man/multiblock.Rd
+732de846733c151ea22cab45f6040d23 *man/multiblock.Rd
 a2bec7b86dd0c109bad7b20351a1df1b *man/multiblock_plots.Rd
 cb635b1f7e0594967f8bc974e665005e *man/multiblock_results.Rd
 eea3f094cc5dac3ecac083aaeddecbf4 *man/pca.Rd
 83355f67cb18aa1ed14db6cd62372d5f *man/pcagca.Rd
-bfbbf004a777bcc13a60ab1f6c7a8e6e *man/popls.Rd
+a7662d1644fbb538d9a6caeb9e71448d *man/popls.Rd
 7d7b5995547ef5657fa9fe0eb9b0116e *man/potato.Rd
 4119b0c5b9ebfb1478e01bab34034684 *man/preprocess.Rd
 0d347da4b827580d538f17951e00bc2e *man/reexports.Rd
