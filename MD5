@@ -1,6 +1,6 @@
-112383e25f14db474d33ed2e6752e4ba *DESCRIPTION
+c49a02ef43b0e8cdefb74dd4cc6b47eb *DESCRIPTION
 6b2a19f1e8a3ea2c27756f237a7b19d4 *NAMESPACE
-d2dc59bedcbe054ec16f9bdf5cd77277 *NEWS
+67e01aa28dcff0726b9508d5a6581d23 *NEWS
 365712d194bd9ab41ea08e2a8a4460c5 *R/DISCOsca.R
 09c20cd478f24b76162cfe6988a0c55e *R/RcppExports.R
 79b84b57b77d59e29b9e2842f3799b5b *R/asca.R
@@ -24,8 +24,8 @@ a298fcedc015cfef41f72aa60556de4f *R/preprocess.R
 a4edafff28bc1cae6e66f0857a161068 *R/rosaCV.R
 e40fb6ee2cde040b5e4a8727b1066dd5 *R/rosa_plots.R
 ad38665893dcacb91539dd23f4e7270b *R/rosa_results.R
-bdab7f0a80d110a91c2afeaaa61fb0f0 *R/sopls.R
-337033e351c750f28230dc12294ae757 *R/sopls_crossvalidation.R
+82e65c096110829833ffabfb96a9d803 *R/sopls.R
+088961952f53ebfec944c4e1d1333d20 *R/sopls_crossvalidation.R
 ef3d7d5013fc2b6f7923816ee7923170 *R/sopls_plots.R
 96ad25324fd80f94a113e73df8ef4e46 *R/sopls_pm.R
 91c856d7ecdc0a7130d89685fb7cc328 *R/sopls_results.R
@@ -52,7 +52,7 @@ d02fe71edda6d127d2e2cc1e2e3f9380 *inst/doc/vignette_D_asca.Rmd
 64cdbdb4064ea8b9272b20e10dd642c5 *inst/doc/vignette_D_asca.html
 b7dfa4bd16ee17db8a4d391e0b1cb7e5 *inst/doc/vignette_E_supervised.R
 4326aa4092bddd11117a70274b23598c *inst/doc/vignette_E_supervised.Rmd
-dd3a6acfbbb6b66f25d729b948b6f074 *inst/doc/vignette_E_supervised.html
+d9bb089a1af7ffe34414fbcc2ecaaa4f *inst/doc/vignette_E_supervised.html
 4a70e6e53f427137a5eb32d19527d7c5 *inst/doc/vignette_F_complex.R
 098cff778f0a71dd4b22960784d49fb3 *inst/doc/vignette_F_complex.Rmd
 e198f70286e596b55744cf0a972e3fd3 *inst/doc/vignette_F_complex.html
@@ -109,7 +109,7 @@ a7662d1644fbb538d9a6caeb9e71448d *man/popls.Rd
 03dacf87b3a539939fd785ff55aea59f *man/sca.Rd
 313705a66657a290ad1077e153c1e692 *man/simulated.Rd
 945dd0524cade4cf94ebcde6313a50e8 *man/smbpls.Rd
-50557bda18c4a9c791bb4f29c6d47f14 *man/sopls.Rd
+4c0dc8e240862117d8d1da9452e149d4 *man/sopls.Rd
 83b1498efdf2d0d51e7c92e6904f2f1f *man/sopls_plots.Rd
 5f21eea7c521e68ce86e474e5ed41a3d *man/sopls_results.Rd
 49d8db2c83ba639366cc2f1000dc4394 *man/statis.Rd
