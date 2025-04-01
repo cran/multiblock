@@ -1,13 +1,13 @@
-05acf26289018244bebc5b929630da2b *DESCRIPTION
-b8442cc6519dadafcce4bcc51938bfb0 *NAMESPACE
+24621ac9f562bfd1eadbf1a92df6a8dc *DESCRIPTION
+a4681f2257aabe33981fa7ab7b936a6b *NAMESPACE
 b8c56c6a7006e7b3cad8c2fb88b70099 *NEWS
 365712d194bd9ab41ea08e2a8a4460c5 *R/DISCOsca.R
 09c20cd478f24b76162cfe6988a0c55e *R/RcppExports.R
 787dbbf079d1f14c5deb5efd34763a8f *R/basic.R
 6a03386b108d209c4d778375bcd8ec29 *R/complex.R
 900ef226f24b4f01a7736275dd8b5e07 *R/crossprodQ.R
-f4699fc82d34b231068481402f15c794 *R/datasets.R
-d3cd678f0726eb1ecb1085448034eda3 *R/direct_export.R
+6059ad95e0685a982d5b6538e61b3013 *R/datasets.R
+3f00c294c54bb30e9e7f07a22ac0343d *R/direct_export.R
 29cba6ce1ae9d9b60b742155c77abeb6 *R/lpls.R
 c6e9f37438ec0ce5a8743d1605383d32 *R/lplsData.R
 a95504c2a59bffb8565ab44ad2b1fba6 *R/lpls_results.R
@@ -22,8 +22,8 @@ a298fcedc015cfef41f72aa60556de4f *R/preprocess.R
 a4edafff28bc1cae6e66f0857a161068 *R/rosaCV.R
 e40fb6ee2cde040b5e4a8727b1066dd5 *R/rosa_plots.R
 ad38665893dcacb91539dd23f4e7270b *R/rosa_results.R
-82e65c096110829833ffabfb96a9d803 *R/sopls.R
-088961952f53ebfec944c4e1d1333d20 *R/sopls_crossvalidation.R
+30a35c7ddf6336f268e4035fbed7a0d1 *R/sopls.R
+c7cb4c88618b8352f5628b31e5455835 *R/sopls_crossvalidation.R
 ef3d7d5013fc2b6f7923816ee7923170 *R/sopls_plots.R
 96ad25324fd80f94a113e73df8ef4e46 *R/sopls_pm.R
 91c856d7ecdc0a7130d89685fb7cc328 *R/sopls_results.R
@@ -33,6 +33,7 @@ f781c83b1ee3c6ff1ca4ac8d2d3cd808 *R/utilities.R
 fd8e0116e178fb522389d7886f3184de *README.md
 44be7d140e7a520cf46fa1364f44c3c3 *build/vignette.rds
 0afcd7af235335e26919c8239a70e76e *data/candies.rda
+ab3bcd2b9b358d3a04262636b3230574 *data/mobile.rda
 e293efd73078a65a5f13c93d9b281f46 *data/potato.rda
 a88fb5c4c2f07b25aa9890acccac54c6 *data/simulated.rda
 c4d841ed9699b2956192ef9f58744057 *data/wine.rda
@@ -71,6 +72,7 @@ e70ea70d0baa0f69747f0cfa2a5957c9 *man/dummycode.Rd
 6dde64915d0f1d1984810f32b48bd87c *man/extended.model.frame.Rd
 9d41e16bc61e9738bb1031de10642f49 *man/figures/LPLSsmall.png
 3f1e834e370df49a65d3c75c2b116d90 *man/figures/Wiley.png
+800c7d5b9db6ce622c98c32ba4be9fb1 *man/figures/mobile.png
 a6e1790aa5d1acf30c4d9328829bf9d6 *man/figures/simulated.png
 3e6ffcd2ec80d5b51780d1f413259d81 *man/figures/wine.png
 9b00b72576b4b43002a52321d1b614f1 *man/gca.Rd
@@ -89,6 +91,7 @@ ea50470289f561dee5618d44cc7038f5 *man/maage.Rd
 2d4f437321dc7c9e0c86cea5e2626636 *man/mcoa.Rd
 a9a2044aa68a47538acaefcd82ece7ab *man/mcolors.Rd
 abc7fc73dab6f32594f85171a46e822b *man/mfa.Rd
+66451ae90ad485416a7651f7eaf0e057 *man/mobile.Rd
 732de846733c151ea22cab45f6040d23 *man/multiblock.Rd
 a2bec7b86dd0c109bad7b20351a1df1b *man/multiblock_plots.Rd
 cb635b1f7e0594967f8bc974e665005e *man/multiblock_results.Rd
@@ -99,7 +102,7 @@ eea3f094cc5dac3ecac083aaeddecbf4 *man/pca.Rd
 7d7b5995547ef5657fa9fe0eb9b0116e *man/potato.Rd
 6707cb37172e95e1365c338925baed74 *man/predict.mbpls.Rd
 4119b0c5b9ebfb1478e01bab34034684 *man/preprocess.Rd
-8d11bdca7aae87af301860339bef4057 *man/reexports.Rd
+5b5726ffb6e8a15c0fa6a679fe180503 *man/reexports.Rd
 7da1515eba76b4848fae2deb725a3518 *man/rosa.Rd
 76ac5bdb9775b1d1bc23a1d874b074b0 *man/rosa_plots.Rd
 082908bfd1778c68cba2581e8031fe45 *man/rosa_results.Rd
